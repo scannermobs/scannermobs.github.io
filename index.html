@@ -15,16 +15,44 @@
 		body{
 			background-color: #333;
 			color: #fffa;
+			line-height: 1.5;
 			height: 100%;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			align-items: center;
-			font-size: 2.5em;
+			align-items: flex-start;
+			padding: 3vh 3vw;
+		}
+		h1{
+			font-size: clamp(2.5rem, 0.5rem + 5vw, 4.5rem);
+			line-height: 1.05;
+		}
+		p{
+			font-size: clamp(1rem, 0.5rem + 2.5vw, 1.5rem);
+		}
+		#email{
+			cursor: pointer;
 		}
 	</style>
 </head>
 <body>
-	<h1>I make accessible websites</h1>
+	
+	<h1>Accessible, Bespoke, and Down-to-Earth WordPress Design & Development</h1>
+	<p>If you'd like to discuss a project, <span id="email" onclick="revealEmail()" role="button" tabindex="0">contact me</span>.</p>
+	
+	<script>
+		function revealEmail() {
+			const encodedEmail = 'ben.r.crossman' + '@' + 'gmail' + '.com'
+			const emailElement = document.getElementById('email')
+			emailElement.innerText = encodedEmail
+			emailElement.style.cursor = 'text'
+			const range = document.createRange()
+			range.selectNode(emailElement)
+			const selection = window.getSelection()
+			selection.removeAllRanges()
+			selection.addRange(range)
+		}
+	</script>
+
 </body>
 </html>
