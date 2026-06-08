@@ -39,6 +39,9 @@
 			border: none;
 			text-decoration: underline;
 		}
+		#email.showing{
+			text-decoration: none;
+		}
 		button{
 			padding: 0;
 		}
@@ -55,6 +58,7 @@
 		function revealEmail() {
 			const encodedEmail = 'contact me by emailing: ben.r.crossman' + '@' + 'gmail' + '.com'
 			const emailElement = document.getElementById('email')
+			emailElement.classList.add('showing')
 			emailElement.innerText = encodedEmail
 			emailElement.style.cursor = 'text'
 			const range = document.createRange()
